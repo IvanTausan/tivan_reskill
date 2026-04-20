@@ -2,7 +2,8 @@
 import { LoginPage } from "../../pages/LoginPage";
 import { test } from "../../fixtures/testFixtures";
 import { expect } from "@playwright/test";
-import { users } from "../../test-data/users";
+import { users } from "../../fixtures/testFixtures";
+//import users from "../test-data/users.json" assert { type: "json" };
 
 test("Validate Login page", async ({ page }) => {
   await page.goto("https://www.saucedemo.com/");

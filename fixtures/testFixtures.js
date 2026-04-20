@@ -1,10 +1,14 @@
 // @ts-nocheck
+import dotenv from "dotenv";
+dotenv.config();
+
+export const users = JSON.parse(process.env.TEST_USERS);
+
 import { test as base } from "@playwright/test";
 import { LoginPage } from "../pages/LoginPage";
 import { InventoryPage } from "../pages/InventoryPage";
 import { CartDetailsPage } from "../pages/CartDetailsPage";
 import { expect } from "@playwright/test";
-import { users } from "../test-data/users";
 import { CheckoutPage } from "../pages/CheckoutPage";
 
 export const test = base.extend({

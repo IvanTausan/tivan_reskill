@@ -10,13 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      TEST_USERS: ${{ secrets.TEST_USERS }}
 
     steps:
-      - name: Download code
+      - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Debug files
-        run: ls -R
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -25,11 +23,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Create users file
-        run: |
-          mkdir -p test-data
-          echo '${{ secrets.TEST_USERS }}' > test-data/users.json
 
       - name: Print users file
         run: cat test-data/users.json

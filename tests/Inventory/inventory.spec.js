@@ -2,8 +2,7 @@
 import { test } from "../../fixtures/testFixtures";
 import { expect } from "@playwright/test";
 import { InventoryPage } from "../../pages/InventoryPage";
-import { users } from "../../test-data/users";
-
+import { users } from "../../fixtures/testFixtures";
 
 test.describe("Standard user tests", () => {
   test.use({ user: users.standard });
