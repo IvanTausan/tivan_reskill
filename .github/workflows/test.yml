@@ -1,9 +1,16 @@
 name: Run Tests
 
+# workflow triggers
 on:
   push:
     branches: [master]
+
   workflow_dispatch:
+
+    # Allows external webhook trigger
+  repository_dispatch:
+    types:
+      - webhook
 
 jobs:
   test:
