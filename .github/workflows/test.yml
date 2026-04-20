@@ -16,5 +16,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Create users file
+        run: echo "${{ secrets.TEST_USERS }}" > test-data/users.js
+
       - name: Run tests
         run: npm test
