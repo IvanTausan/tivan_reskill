@@ -15,6 +15,9 @@ jobs:
       - name: Download code
         uses: actions/checkout@v4
 
+      - name: Debug files
+        run: ls -R
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -24,7 +27,11 @@ jobs:
         run: npm install
 
       - name: Create users file
-        run: echo "${{ secrets.TEST_USERS }}" > test-data/users.js
+        run: |
+          mkdir -p test-data
+          cat <<EOF > test-data/users.js
+          ${{ secrets.TEST_USERS }}
+          EOF
 
       - name: Run tests
         run: npm test
