@@ -29,9 +29,12 @@ jobs:
       - name: Create users file
         run: |
           mkdir -p test-data
-          cat <<EOF > test-data/users.js
-          ${{ secrets.TEST_USERS }}
-          EOF
+          cat <<EOF > test-data/users.json
+            ${{ secrets.TEST_USERS }}
+            EOF
+
+      - name: Print users file
+        run: cat test-data/users.json
 
       - name: Run tests
         run: npm test
